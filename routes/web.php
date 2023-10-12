@@ -6,8 +6,10 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class,'index'])-> name('home');
 
+Route::prefix('users')->group(function(){
+    Route::get('/users', [UserController::class,'index'])->name('users.index');
+});
 
-Route::get('/users', [UserController::class,'index'])->name('users.index');
 Route::post('/users/create', [UserController::class,'create'])->name('users.create');
 Route::post('/users', [UserController::class,'store'])->name('users.store');
 Route::get('/users/{id}', [UserController::class,'show'])->name('users.show');

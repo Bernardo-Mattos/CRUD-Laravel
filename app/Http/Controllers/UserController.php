@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users' , [
+        return view('users', [
             'users' => $users
         ]);
     }
@@ -28,7 +28,8 @@ class UserController extends Controller
     {
         $user = $request->only('name', 'lastname', 'cpf', 'idade');
         User::create($user);
-        return view('users')->with('sucess', 'usuario criado');
+        $users = User::all(); // Recupera todos os usuários novamente após criar um novo
+        return view('users')->with('success', 'Usuário criado com sucesso')->with('users', $users);
     }
 
     /**
@@ -78,6 +79,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        return view('users');
+        $users = User::all();
+        return view('users')->with('users', $users);
     }
 }
