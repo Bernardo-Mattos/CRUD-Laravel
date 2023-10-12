@@ -6,7 +6,13 @@ use App\Http\Controllers\UserController;
 
 // vulgo router
 
+//desafio 1
 Route::get('/', [HomeController::class,'index'])-> name('home');
+
+//desafio 2
+Route::get('/desafio' , [HomeController::class , 'desafios'])->name('desafio');
+
+
 
 Route::prefix('users')->group(function(){
     Route::get('/users', [UserController::class,'index'])->name('users.index');

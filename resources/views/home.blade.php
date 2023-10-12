@@ -1,13 +1,28 @@
 @extends('master')
 
-@section('css')
-    {{ url('css/home.css') }}
-@endsection
 @section('content')
-  <h2>Olá {{$name}} , você tem {{$age}} anos</h2>
+    <h1>Desafio 1</h1>
+    <div style="display: flex; gap: 10px;">
 
-  <button>Create user</button>
-  <button>Read user</button>
-  <button>Update user</button>
-  <button>Delete user</button>
+    </div>
+
+    <h1>Desafio 2</h1>
+    <div class="desafio2">
+        @foreach ($pessoas as $pessoa )
+            @component('components.card')
+                @slot('image')
+                    {{$pessoa['image']}}
+                @endslot
+                @slot('name')
+                    {{$pessoa['name']}}
+                @endslot
+                @slot('age')
+                    {{$pessoa['age']}}
+                @endslot
+                @slot('birth')
+                    {{$pessoa['birth']}}
+                @endslot
+            @endcomponent
+        @endforeach
+    </div>
 @endsection

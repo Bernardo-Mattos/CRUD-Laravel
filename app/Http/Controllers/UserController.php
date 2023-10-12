@@ -24,9 +24,9 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create(Request $req)
     {
-        $user = $request->only('name', 'lastname', 'cpf', 'idade');
+        $user = $req->only('name', 'lastname', 'cpf', 'idade');
         User::create($user);
         $users = User::all(); // Recupera todos os usuários novamente após criar um novo
         return view('users')->with('success', 'Usuário criado com sucesso')->with('users', $users);
