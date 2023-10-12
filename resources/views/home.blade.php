@@ -4,7 +4,7 @@
     {{ url('css/home.css') }}
 @endsection
 @section('content')
-  <h2>Home</h2>
+  <h2>Olá {{$name}} , você tem {{$age}} anos</h2>
 
   <button>Create user</button>
   <button>Read user</button>
