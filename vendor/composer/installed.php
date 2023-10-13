@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '08982ff64ebfc7a424b45506279846f147ab8a30',
+        'reference' => '9532f1c567c48df2f7ff5235dbf91486373e33f1',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -30,6 +30,15 @@
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'deployer/deployer' => array(
+            'pretty_version' => 'v7.3.1',
+            'version' => '7.3.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../deployer/deployer',
+            'aliases' => array(),
+            'reference' => 'c5c5e79d4e57445918ed24a9cdd3d85b0f261de3',
+            'dev_requirement' => true,
         ),
         'dflydev/dot-access-data' => array(
             'pretty_version' => 'v3.0.2',
@@ -376,7 +385,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '08982ff64ebfc7a424b45506279846f147ab8a30',
+            'reference' => '9532f1c567c48df2f7ff5235dbf91486373e33f1',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
