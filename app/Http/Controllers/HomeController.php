@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -9,39 +10,44 @@ class HomeController extends Controller
 
     public function index()
     {
-        $pessoas = [
-            [
-                'image' => 'https://i.pravatar.cc/150?img=' . rand(0, 50),
-                'name' => 'Bernardo',
-                'birth' => '29/01/90',
-                'age' => 50
-            ],
-
-            [
-                'image' => 'https://i.pravatar.cc/150?img=' . rand(0, 50),
-                'name' => 'Pedro',
-                'birth' => '10/11/1933',
-                'age' => 90
-            ],
-
-            [
-                'image' => 'https://i.pravatar.cc/150?img=' . rand(0, 50),
-                'name' => 'Daniel',
-                'birth' => '01/01/2020',
-                'age' => 2
-            ]
-        ];
-
-        $dados['pessoas'] = $pessoas;
-        return view('home', $dados);
-
+        $users = User::all();
+        // dd($users);
+        return view('home', ['users' => $users]);
+    }
+    public function create(Request $req)
+    {
+        $users = $req->only('id', 'name', 'lastname', 'idade', 'cpf');
+        User::create($users);
+        return view('home' , ['users' => $users]);
     }
 
-    public function desafios(){
-        $numero = 1;
-        $url = 'https://i.pravatar.cc/150?img='.$numero;
-        $dados['url'] = $url;
-    //    dd($dados);
-       return view('desafios' , $dados);
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('edit', ['user' => $user]);
+    }
+    public function update(Request $req, $id)
+    {
+        $user = User::find($id);
+
+        if ($user) {
+            $user->name = $req->input('name');
+            $user->lastname = $req->input('lastname');
+            $user->idade = $req->input('idade');
+            $user->cpf = $req->input('cpf');
+            $user->save();
+        }
+
+        return redirect()->route('home');
+    }
+    public function delete($id)
+    {
+        $user = User::find($id);
+
+        if ($user) {
+            $user->delete();
+        }
+
+        return redirect()->route('home');
     }
 }
