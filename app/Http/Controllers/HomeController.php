@@ -16,15 +16,16 @@ class HomeController extends Controller
     }
     public function create(Request $req)
     {
-        $users = $req->only('id', 'name', 'lastname', 'idade', 'cpf');
-        User::create($users);
-        return view('home' , ['users' => $users]);
+        $userData = $req->only('name', 'lastname', 'idade', 'cpf');
+        $user = User::create($userData);
+        // dd($user);
+        return redirect()->route('home');
     }
 
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('edit', ['user' => $user]);
+        $users = User::find($id);
+        return view('home', ['users' => $users]);
     }
     public function update(Request $req, $id)
     {

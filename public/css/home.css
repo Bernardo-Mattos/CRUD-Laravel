@@ -1,38 +1,13 @@
-table.customTable {
-    width: 100%;
-    background-color: #ffffff;
-    border-collapse: collapse;
-    border-width: 2px;
-    border-color: #7ea8f8;
-    border-style: solid;
-    color: #000000;
+.conteudo{
+    padding: 20px;
 }
 
-table.customTable td,
-table.customTable th {
-    border-width: 2px;
-    border-color: #7ea8f8;
-    border-style: solid;
-    padding: 5px;
-}
 
-table.customTable thead {
-    background-color: #7ea8f8;
-}
 
-.formAdd {
+.formulario{
     display: flex;
-    margin-bottom: 10px;
-    gap: 1em;
-}
-.input {
-    width: 100%;
-    max-width: 220px;
-    height: 20px;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1.5px solid lightgrey;
-    outline: none;
-    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-    box-shadow: 0px 0px 20px -18px;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
 }
