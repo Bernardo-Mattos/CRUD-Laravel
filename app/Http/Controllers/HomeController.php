@@ -11,14 +11,12 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::all();
-        // dd($users);
         return view('home', ['users' => $users]);
     }
     public function create(Request $req)
     {
         $userData = $req->only('name', 'lastname', 'idade', 'cpf');
         $user = User::create($userData);
-        // dd($user);
         return redirect()->route('home');
     }
 
